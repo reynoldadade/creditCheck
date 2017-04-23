@@ -1,12 +1,19 @@
 from django.shortcuts import render
-from django.http import HttpResponse;
-from django.template import loader
+from django.conf.urls import url
+from django.http import Http404
+from .models import Clients
 
 
 def index(request):
-    template =loader.get_template('')
-    return HttpResponse("Hello this is the eligibility index")
+
+    return render(request,'eligibility/index.html')
 
 
 def detail(request,client_id):
-    return HttpResponse("<h2>Details for client : " + client_id + "</h2>")
+   try:
+       client = Clients.objects.get(employee_id=client_id)
+
+       context = {'client_details':client}
+       return render(request,'eligibility/details.html',context)
+   except Clients.DoesNotExist:
+       raise Http404("Album Does Not Exist")
