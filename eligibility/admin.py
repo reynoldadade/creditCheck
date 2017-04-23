@@ -1,3 +1,4 @@
 from django.contrib import admin
+from eligibility.models import Clients
 
-# Register your models here.
+admin.site.register(Clients)  #Register my client model into the admin interface
