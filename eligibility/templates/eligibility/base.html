@@ -15,10 +15,18 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="row">
+    <div class ="col-md-4 col-md-offset-4 ">
+       {% block search %}
 
+       {% endblock %}
+    </div>
+</div>
+<div class="col-md-6 col-md-offset-3">
+    {% block body %}
 
-{% block body %}
+    {% endblock %}
+</div>
 
-{% endblock %}
 </body>
 </html>

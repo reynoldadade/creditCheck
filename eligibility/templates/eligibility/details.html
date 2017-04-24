@@ -1,21 +1,18 @@
 {% extends 'eligibility/base.html' %}
+{% block search %}
+<form class="form-inline" action={#  #} method="post">
+  <div class="form-group">
+
+    <input type="search" class="form-control" id="employee_id" name="employ_id" value="{{ client_details.employee_id }}" placeholder="Employee ID">
+  </div>
+
+  <button type="submit" class="btn btn-default">Search</button>
+</form>
+
+{% endblock %}
+
 {% block body %}
 
-
-    <div class="row">
-        <div class="col-md-3 col-md-offset-6">
-
-            <form class="form-inline" action="" method="post">
-                    {% csrf_token %}
-                  <div class="form-group">
-
-                    <input type="search" class="form-control" id="employee_id" placeholder="Employee ID" >
-                  </div>
-
-                    <button type="submit" class="btn btn-default" >Check</button>
-            </form>
-        </div>
-    </div>
     <div class = "row">
             <div class ="col-md-6 col-md-offset-3">
                 <div class="container-fluid">
@@ -55,5 +52,8 @@
             </div>
     </div>
 
-
 {% endblock %}
+
+
+
+
