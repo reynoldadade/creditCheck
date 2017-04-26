@@ -1,23 +1,38 @@
+
+
+
 {% extends 'eligibility/base.html' %}
+{% block title%}Eligibility{% endblock  %}
+
 {% block search %}
-<form class="form-inline" action={#  #} method="post">
-  <div class="form-group">
 
-    <input type="search" class="form-control" id="employee_id" name="employ_id" value="{{ client_details.employee_id }}" placeholder="Employee ID">
-  </div>
+<div class="container-fluid">
+<form class="form-inline" action="{% url 'eligibility:check_eligibility' %}" method="post">
+    {% csrf_token %}
 
-  <button type="submit" class="btn btn-default">Search</button>
+    {{ form.as_table}}
+    <input type="submit" class="btn btn-default" />
+
+
 </form>
-
+</div>
 {% endblock %}
-
+{% block jumbotron %}
+<div class="col-sm-5 col-sm-offset-3">
+    <div class="container-fluid">
+        <div class="jumbotron">
+            {{ message }}
+        </div>
+    </div>
+</div>
+{% endblock %}
 {% block body %}
 
-    <div class = "row">
-            <div class ="col-md-6 col-md-offset-3">
+
+            <div class ="col-sm-6 col-sm-offset-3">
                 <div class="container-fluid">
                     <div>
-                        <table class=" table table-bordered">
+                        <table class=" table table-striped table-bordered table-condensed table-hover">
                         <thead>
                         <tr>
                             <th>Employee ID:</th> <th>{{ client_details.employee_id }}</th>
@@ -50,9 +65,11 @@
                     </div>
                 </div>
             </div>
-    </div>
+
 
 {% endblock %}
+
+
 
 
 

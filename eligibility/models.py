@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import  date
+from datetime import date
 
 
 class Clients(models.Model):

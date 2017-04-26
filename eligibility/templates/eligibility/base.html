@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block title %}{% endblock %}</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -12,21 +12,54 @@
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <!-- Latest compiled and minified JavaScript -->
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
 </head>
 <body>
-<div class="row">
-    <div class ="col-md-4 col-md-offset-4 ">
+<!-- navigation here---->
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+        <!--logo-->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar"><span class="glyphicon glyphicon-align-justify"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+               Credit Check
+            </a>
+        </div>
+        <!--menu items-->
+        <div class="collapse navbar-collapse" id="mainNavBar">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'eligibility:check_eligibility' %}">Eligibility</a></li>
+                <li><a href="#">Rate</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="row" >
+    <div class ="col-sm-4 col-sm-offset-4 ">
        {% block search %}
 
        {% endblock %}
     </div>
 </div>
-<div class="col-md-6 col-md-offset-3">
-    {% block body %}
+<div class="row" id="jumbotron" >
+   {% block jumbotron %}
 
-    {% endblock %}
+        {% endblock %}
+</div>
+<div class="row" id="body" >
+        {% block body %}
+
+        {% endblock %}
 </div>
 
+
+
 </body>
-</html>

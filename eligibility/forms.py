@@ -2,4 +2,5 @@ from django import forms
 
 
 class IdForm(forms.Form):
-    Client_id = forms.IntegerField(max_value=99999999,min_value=1)
+    # take employee id
+    employee_id =forms.IntegerField(label="Employee ID" ,min_value=1,max_value=9999999)
