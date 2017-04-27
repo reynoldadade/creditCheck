@@ -19,5 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^eligibility/', include('eligibility.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^rate/',include('rate.urls')),
 
 ]

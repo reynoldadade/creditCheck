@@ -5,23 +5,24 @@
 {% block title%}Eligibility{% endblock  %}
 
 {% block search %}
+<div class ="col-sm-4 col-sm-offset-4 ">
+    <div class="container-fluid">
+        <form class="form-inline" action="{% url 'eligibility:check_eligibility' %}" method="post">
+            {% csrf_token %}
 
-<div class="container-fluid">
-<form class="form-inline" action="{% url 'eligibility:check_eligibility' %}" method="post">
-    {% csrf_token %}
-
-    {{ form.as_table}}
-    <input type="submit" class="btn btn-default" />
+            {{ form.as_table}}
+            <input type="submit" class="btn btn-default" onclick="$('#jumbotron').show() "/>
 
 
-</form>
+        </form>
+    </div>
 </div>
 {% endblock %}
 {% block jumbotron %}
-<div class="col-sm-5 col-sm-offset-3">
+<div class="col-sm-4 col-sm-offset-4">
     <div class="container-fluid">
         <div class="jumbotron">
-            {{ message }}
+           <h3 align="center">{{ message }}</h3>
         </div>
     </div>
 </div>

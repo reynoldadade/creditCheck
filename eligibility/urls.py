@@ -6,6 +6,6 @@ app_name = 'eligibility'
 urlpatterns = [
     #  /eligibility/
     url(r'^$', views.index, name='index'),
-    url(r'^check_eligibility/$',views.check_eligibility,name='check_eligibility')
+    url(r'^check_eligibility/$',views.check_eligibility,name='check_eligibility'),
 
 ]
